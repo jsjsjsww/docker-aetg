@@ -4,7 +4,7 @@ package com.neo.service.generator;
 
 import com.neo.service.combinatorial.*;
 import com.neo.service.common.*;
-import com.neo.service.handler.Solver;
+import com.neo.service.handler.MFTVerifier;
 
 
 import java.time.Duration;
@@ -286,7 +286,7 @@ public class AETG implements CAGenerator {
 
   public static void main(String[] args) {
 
-	CTModel model = new CTModel(4, new int[]{2, 2, 2, 2}, 2, null, new Solver());
+	CTModel model = new CTModel(4, new int[]{2, 2, 2, 2}, 2, null, new MFTVerifier());
 	// test suite object
 	for (int j = 0; j < 1; j++) {
 	  TestSuite ts = new TestSuite();

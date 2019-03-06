@@ -3,7 +3,6 @@ package com.neo.controller;
 import com.neo.domain.TestSuite;
 import com.neo.service.generator.AETG;
 import com.neo.service.handler.MFTVerifier;
-import com.neo.service.handler.Solver;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;

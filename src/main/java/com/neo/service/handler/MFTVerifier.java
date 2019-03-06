@@ -352,7 +352,7 @@ public class MFTVerifier implements ValidityChecker {
   }
 
 
-  public static void main(String[] args) {
+  public static void main(String[] args) {/*
 	ArrayList<int[]> cons = new ArrayList<>();
 	int[] cons1 = new int[2];
 	cons1[0] = -1;
@@ -393,7 +393,7 @@ public class MFTVerifier implements ValidityChecker {
 	testcase[1] = 2;
 	testcase[2] = 2;
 	testcase[3] = 1;
-	System.out.println(test1.isValid(testcase));
+	System.out.println(test1.isValid(testcase));*/
   }
 
 }
