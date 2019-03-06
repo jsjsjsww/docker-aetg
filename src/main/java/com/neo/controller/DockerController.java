@@ -2,6 +2,7 @@ package com.neo.controller;
 
 import com.neo.domain.TestSuite;
 import com.neo.service.generator.AETG;
+import com.neo.service.handler.MFTVerifier;
 import com.neo.service.handler.Solver;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -70,7 +71,7 @@ public class DockerController {
 
 	  }
         Instant start = Instant.now();
-        com.neo.service.combinatorial.CTModel model = new com.neo.service.combinatorial.CTModel(parameters,  values,strength, constraint, new Solver());
+        com.neo.service.combinatorial.CTModel model = new com.neo.service.combinatorial.CTModel(parameters,  values,strength, constraint, new MFTVerifier());
         AETG aetg = new AETG();
         com.neo.service.combinatorial.TestSuite ts = new com.neo.service.combinatorial.TestSuite();
         aetg.generation(model, ts);
