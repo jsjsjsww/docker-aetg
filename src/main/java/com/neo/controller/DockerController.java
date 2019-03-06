@@ -51,8 +51,26 @@ public class DockerController {
         int[] values = new int[valueList.size()];
         for(int i = 0; i < values.length; i++)
             values[i] = (Integer)valueList.get(i);
+	  jsonArray = (JSONArray)jsonObject.get("constraint");
+	  List constraintList = jsonArray.toList();
+	  ArrayList<int[]> constraint = new ArrayList<>();
+	  for(int i = 0; i < constraintList.size(); i++){
+	    String line = (String)constraintList.get(i);
+		//constraint.add((String)constraintList.get(i));
+		String[] split = line.trim().split(" ");
+		int[] each = new int[split.length / 2];
+		for (int j = 0; j < split.length; j += 2) {
+		  // specific symbol, note that the representation in the file
+		  // starts from 0 but the representation in the solver starts
+		  // from 1.
+		  int v = Integer.valueOf(split[j + 1]) + 1;
+		  each[j / 2] = split[j].equals("-") ? -v : v;
+		}
+		constraint.add(each);
+
+	  }
         Instant start = Instant.now();
-        com.neo.service.combinatorial.CTModel model = new com.neo.service.combinatorial.CTModel(parameters,  values,strength, null, new Solver());
+        com.neo.service.combinatorial.CTModel model = new com.neo.service.combinatorial.CTModel(parameters,  values,strength, constraint, new Solver());
         AETG aetg = new AETG();
         com.neo.service.combinatorial.TestSuite ts = new com.neo.service.combinatorial.TestSuite();
         aetg.generation(model, ts);
